@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Plugin Detection Test Page</title>
+	<style type="text/css">
+		a {
+			color: #000000;
+			font-size: 30px;
+			text-decoration: none;
+			transition: color 1s;
+			-moz-transition:color 1s;
+			-webkit-transition:color 1s;
+			-o-transition:color 1s;
+		}
+
+		a:hover {
+			color: #a61b29;
+			text-decoration: line-through;
+			transition: color 1s;
+			-moz-transition:color 1s;
+			-webkit-transition:color text 1s;
+			-o-transition:color 1s;
+		}
+
+		.mg{
+			margin:0 15px 0 0;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="text-center" style="font-size: 50px;">Plguin Detect</h1>
+    <div class="text-center">
+    	<a href="mos://" class="mg">MOS Protocol</a>
+		<a href="loaclient://" class="mg">LOA Protocol</a>
+    </div>
+</body>
+<script type="text/javascript" src="protocol.js"></script>
+<script type="text/javascript">
+	window.onload = function (){
+		window.protocolCheck("loaclient://", function(){
+			// error
+        	alert("Not installed plugin");
+	    }, function(){
+	    	// success
+	        alert("Installed plugin")
+	    }, function(){
+	    	// unspported
+	        alert("Unsupport Operate");
+	    });
+	}
+</script>
+</html>
